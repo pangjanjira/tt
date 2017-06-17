@@ -1,0 +1,7 @@
+<EGUAReturn>
+	<Status>
+		<EGUAStatus>$eguaranteeStatus</EGUAStatus>
+		<MsgCode>$messageCode</MsgCode>
+		<MsgDesc>$messageDesc</MsgDesc>
+	</Status>
+</EGUAReturn>

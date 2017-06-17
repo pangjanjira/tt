@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<$rootTag>
+  	<ProjNo>$projNo</ProjNo>
+  	<VendorTaxID>$vendorTaxId</VendorTaxID>
+  	<VendorName>$vendorName</VendorName>
+  	<CompID>$compId</CompID>
+  	<EndDte>$endDate</EndDte>
+  	<StartDte>$startDate</StartDte>
+  	<BondType>$bondType</BondType>
+  	<StatusLG>$statusLg</StatusLG>
+  	<Status_Desc>$statusDesc</Status_Desc>
+  	<AppvDte>$appDate</AppvDte>
+  	<LGNo>$lgNo</LGNo>
+  	<ExtendDate>$extendDate</ExtendDate>
+</$rootTag>

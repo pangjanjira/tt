@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="UTF-8" />
+    <title>SCB E-Guarantee</title>
+     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+     <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/MoneAdmin.css" />
+    <link rel="stylesheet" href="assets/plugins/Font-Awesome/css/font-awesome.css" />
+    <!--END GLOBAL STYLES -->
+
+    <!-- PAGE LEVEL STYLES -->
+    <link href="assets/css/layout2.css" rel="stylesheet" />
+       <link href="assets/plugins/flot/examples/examples.css" rel="stylesheet" />
+       <link rel="stylesheet" href="assets/plugins/timeline/timeline.css" />
+    <!-- END PAGE LEVEL  STYLES -->
+     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+    <!-- END HEAD -->
+
+    <!-- BEGIN BODY -->
+<body class="padTop53 " >
+
+    <!-- MAIN WRAPPER -->
+    <div id="wrap" >
+        
+
+        <!-- HEADER SECTION -->
+        <div id="top">
+
+            <nav class="navbar navbar-inverse navbar-fixed-top " style="padding-top: 10px;background-color:#4E2981;">
+                <a data-original-title="Show/Hide Menu" data-placement="bottom" data-tooltip="tooltip" class="accordion-toggle btn btn-primary btn-sm visible-xs" data-toggle="collapse" href="#menu" id="menu-toggle">
+                    <i class="icon-align-justify"></i>
+                </a>
+                <!-- LOGO SECTION -->
+                <header class="navbar-header">
+                    <a href="index.html" class="navbar-brand"><img src="assets/img/logo_scb.gif" alt="" /></a>
+                </header>
+                <!-- END LOGO SECTION -->
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><h4 style="padding: 4px  4px  4px  4px;color:#EFEFEF;">SCB E-Guarantee</h4></li>
+                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    <!--ADMIN SETTINGS SECTIONS -->
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color:#EED9FE;">
+                            <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="login.html"><i class="icon-signout"></i> Logout </a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <!--END ADMIN SETTINGS -->
+                </ul>
+
+            </nav>
+
+        </div>
+        <!-- END HEADER SECTION -->
+
+
+
+        <!-- MENU SECTION -->
+       <div id="left" >
+           <ul id="menu" class="collapse">                
+               <li class="panel active">
+                   <a href="index.html" >
+                       <i class="icon-home"></i> Home
+                   </a>                   
+               </li>
+               <li class="panel">
+                   <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#control-nav">
+                       <i class=" icon-ban-circle"></i> Control Account
+                       <span class="pull-right">
+                           <i class="icon-angle-left"></i>
+                       </span>
+                   </a>
+                   <ul class="collapse" id="control-nav">
+                       <li><a href="control_account.html"><i class="icon-search"></i> Inquiry Control Account </a></li>
+                   </ul>
+               </li>
+               <li class="panel">
+                   <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#monitor-nav">
+                       <i class="icon-dashboard"></i> Monitor Request
+                       <span class="pull-right">
+                           <i class="icon-angle-left"></i>
+                       </span>
+                   </a>
+                   <ul class="collapse" id="monitor-nav">
+                       <li><a href="request_monitor.html"><i class="icon-desktop"></i> Request Monitoring </a></li>
+                   </ul>
+               </li>
+               <li class="panel">
+                   <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#inquiry-nav">
+                       <i class=" icon-search"></i> Inquiry Request
+                       <span class="pull-right">
+                           <i class="icon-angle-left"></i>
+                       </span>
+                   </a>
+                   <ul class="collapse" id="inquiry-nav">
+                       <li><a href="request_inquiry.html"><i class="icon-search"></i> Inquiry Request </a></li>
+                   </ul>
+               </li>
+               <li><a href="login.html"><i class="icon-signin"></i> Logout </a></li>
+           </ul>
+        </div>
+        <!--END MENU SECTION -->
+
+
+
+        <!--PAGE CONTENT -->
+        <div id="content">
+             
+            <div class="inner" style="min-height: 700px;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3> SCB E-Guarantee's eGP "SETUP" Request Management </h3>
+                    </div>
+                </div>
+                  <hr />
+                 <!--BLOCK SECTION -->
+                 <div class="row">
+                    <div class="col-lg-12">
+                        <div style="text-align: center;">
+                           
+                            <a class="quick-btn" href="control_account.html">
+                                <i class="icon-ban-circle icon-2x"></i>
+                                <span> Control Acct.</span>
+                            </a>
+                           
+                            <a class="quick-btn" href="request_monitor.html">
+                                <i class="icon-dashboard icon-2x"></i>
+                                <span> Monitor Req.</span>
+                            </a>
+                            
+                            <a class="quick-btn" href="request_inquiry.html">
+                                <i class="icon-search icon-2x"></i>
+                                <span> Inquiry Req.</span>
+                            </a>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+                  <!--END BLOCK SECTION -->
+                <hr />
+
+                 <!--TABLE, PANEL, ACCORDION AND MODAL  -->
+                 <div class="row">
+                    <div class="col-lg-12">
+	                    <div class="panel panel-default">
+	                        <div class="panel-heading">
+	                             eGP "SETUP" Request Management
+	                        </div>
+	                        <div class="panel-body">
+	                        	<p>There are 3 Steps to manage the eGP "SETUP" request</p>
+	                            <ul class="nav nav-tabs">
+	                                <li class="active"><a href="#control" data-toggle="tab">1. Control Account</a>
+	                                </li>
+	                                <li><a href="#monitor" data-toggle="tab">2. Monitor Request</a>
+	                                </li>
+	                                <li><a href="#inquiry" data-toggle="tab">3. Inquiry Request</a>
+	                                </li>
+	                            </ul>
+	
+	                            <div class="tab-content">
+	                                <div class="tab-pane fade in active" id="control">
+	                                    <h4>Control Account</h4>
+	                                    <p>
+	                                    	This step is to manage the ALS accounts which has to be closely monitored.
+	                                    	User has to filled in the ALS account, message code, and message description (the reason on why this account has to be monitored).
+	                                    </p>
+	                                </div>
+	                                <div class="tab-pane fade" id="monitor">
+	                                    <h4>Monitor Request</h4>
+	                                    <p>
+	                                    	The requests which own by the controlled account will be flagged as "pending approve" for user to review before approve or reject the requests.
+	                                    	<br/><br/>
+	                                    	In this step, user will use the "Monitor Request" screen to monitor the list of the controlled account's request.
+	                                    	<br/><br/>
+	                                    	After reviewing the request, user can approve or reject the request.
+	                                    	<br/><br/>
+	                                    	- After approve, the request will be sent to ALS for further processing.
+	                                    	<br/>&nbsp;&nbsp;&nbsp;If ALS reject the request, the request will be flagged as "rejected from ALS".
+	                                    	<br/>&nbsp;&nbsp;&nbsp;The request still be seen in the "Monitor Request" screen, user can review the request again before re-approve or reject.
+	                                    	<br/>&nbsp;&nbsp;&nbsp;If ALS approve the request, the request will be flagged as "approved request" and send response back to eGP (with "Approved" status).
+	                                    	<br/><br/>
+	                                    	- After reject, the request will be responsed back to eGP (with "Rejected" status).
+	                                    	<br/>&nbsp;&nbsp;&nbsp;The request will be flagged as "rejected request" and and send response back to eGP (with "Rejected" status).
+	                                    </p>
+	                                </div>
+	                                <div class="tab-pane fade" id="inquiry">
+	                                    <h4>Inquiry Request</h4>
+	                                    <p>The SETUP / CANCEL / CLAIM requests which already responsed back to eGP can be inquired in the "Inquiry Request" screen.</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+                    </div>
+                </div>
+                 <!--TABLE, PANEL, ACCORDION AND MODAL  -->
+                 
+
+
+                
+            </div>
+
+        </div>
+        <!--END PAGE CONTENT -->
+
+
+    </div>
+
+    <!--END MAIN WRAPPER -->
+
+    <!-- FOOTER -->
+    <div id="footer">
+        <p>&copy;  Siam Commercial Bank Pcl. &nbsp;2015 &nbsp;</p>
+    </div>
+    <!--END FOOTER -->
+
+
+    <!-- GLOBAL SCRIPTS -->
+    <script src="assets/plugins/jquery-2.0.3.min.js"></script>
+     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <!-- END GLOBAL SCRIPTS -->
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="assets/plugins/flot/jquery.flot.js"></script>
+    <script src="assets/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="assets/plugins/flot/jquery.flot.time.js"></script>
+     <script  src="assets/plugins/flot/jquery.flot.stack.js"></script>
+    <script src="assets/js/for_index.js"></script>
+   
+    <!-- END PAGE LEVEL SCRIPTS -->
+
+
+</body>
+
+    <!-- END BODY -->
+</html>

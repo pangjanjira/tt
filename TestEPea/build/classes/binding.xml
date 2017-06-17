@@ -1,0 +1,53 @@
+<jaxb:bindings version="2.1"
+	jaxb:extensionBindingPrefixes="xjc" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<jaxb:globalBindings localScoping="toplevel" />
+	<jaxb:bindings schemaLocation="rtc.g1n.008.01.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="th.co.scb.model.customs.g1n008" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+	<jaxb:bindings schemaLocation="rtc.g1n.054.01.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="th.co.scb.model.customs.g1n054" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+	<jaxb:bindings schemaLocation="rtc.g1c.007.01.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="th.co.scb.model.customs.g1c007" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+	<jaxb:bindings schemaLocation="rtc.g1c.054.01.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="th.co.scb.model.customs.g1c054" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+	<jaxb:bindings schemaLocation="rtc.g2n.007.01.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="th.co.scb.model.customs.g2n007" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="rtc.g2n.054.01.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="th.co.scb.model.customs.g2n054" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+	<jaxb:bindings schemaLocation="TH_NSW_PaymentType_6p2.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="th.co.scb.model.customs.mainpayment" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+	<jaxb:bindings schemaLocation="CoreComponentType_2p0.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="th.co.scb.model.customs.coreomponenttype" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+	<jaxb:bindings schemaLocation="xmldsig-core-schema.xsd" node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="th.co.scb.model.customs.coreschema" />
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+</jaxb:bindings>

@@ -1,0 +1,745 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+ <!-- BEGIN HEAD -->
+<head>
+      <meta charset="UTF-8" />
+    <title>SCB E-Guarantee</title>
+     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+     <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <!-- GLOBAL STYLES -->
+    <!-- GLOBAL STYLES -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/MoneAdmin.css" />
+    <link rel="stylesheet" href="assets/plugins/Font-Awesome/css/font-awesome.css" />
+    <!--END GLOBAL STYLES -->
+
+    <!-- PAGE LEVEL STYLES -->
+     <link rel="stylesheet" href="assets/plugins/validationengine/css/validationEngine.jquery.css" />
+     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+	<style type="text/css">
+	<!-- 
+		.datatable-scroll {
+		    overflow-x: auto;
+		    overflow-y: visible;
+		}
+	--> 
+	</style>
+    <!-- END PAGE LEVEL  STYLES -->
+   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+     <!-- END HEAD -->
+
+     <!-- BEGIN BODY -->
+<body class="padTop53 ">
+
+   <!-- MAIN WRAPPER -->
+    <div id="wrap">
+
+<!-- ######################################################################## -->
+
+        <!-- HEADER SECTION -->
+        <div id="top">
+
+            <nav class="navbar navbar-inverse navbar-fixed-top " style="padding-top: 10px;background-color:#4E2981;">
+                <a data-original-title="Show/Hide Menu" data-placement="bottom" data-tooltip="tooltip" class="accordion-toggle btn btn-primary btn-sm visible-xs" data-toggle="collapse" href="#menu" id="menu-toggle">
+                    <i class="icon-align-justify"></i>
+                </a>
+                <!-- LOGO SECTION -->
+                <header class="navbar-header">
+                    <a href="index.html" class="navbar-brand"><img src="assets/img/logo_scb.gif" alt="" /></a>
+                </header>
+                <!-- END LOGO SECTION -->
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><h4 style="padding: 4px  4px  4px  4px;color:#EFEFEF;">SCB E-Guarantee</h4></li>
+                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    <!--ADMIN SETTINGS SECTIONS -->
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background-color:#BE99F1;">
+                            <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="login.html"><i class="icon-signout"></i> Logout </a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <!--END ADMIN SETTINGS -->
+                </ul>
+
+            </nav>
+
+        </div>
+        <!-- END HEADER SECTION -->
+
+<!-- ######################################################################## -->
+
+        <!-- MENU SECTION -->
+       <div id="left" >
+           <ul id="menu" class="collapse">                
+               <li class="panel">
+                   <a href="index.html" >
+                       <i class="icon-home"></i> Home
+                   </a>                   
+               </li>
+               <li class="panel">
+                   <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#control-nav">
+                       <i class=" icon-ban-circle"></i> Control Account
+                       <span class="pull-right">
+                           <i class="icon-angle-left"></i>
+                       </span>
+                   </a>
+                   <ul class="collapse" id="control-nav">
+                       <li><a href="control_account.html"><i class="icon-search"></i> Inquiry Control Account </a></li>
+                   </ul>
+               </li>
+               <li class="panel">
+                   <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#monitor-nav">
+                       <i class="icon-dashboard"></i> Monitor Request
+                       <span class="pull-right">
+                           <i class="icon-angle-left"></i>
+                       </span>
+                   </a>
+                   <ul class="collapse" id="monitor-nav">
+                       <li><a href="request_monitor.html"><i class="icon-desktop"></i> Request Monitoring </a></li>
+                   </ul>
+               </li>
+               <li class="panel active">
+                   <a href="#" data-parent="#menu" data-toggle="expand" class="accordion-toggle" data-target="#inquiry-nav">
+                       <i class=" icon-search"></i> Inquiry Request
+                       <span class="pull-right">
+                           <i class="icon-angle-left"></i>
+                       </span>
+                   </a>
+                   <ul class="expand" id="inquiry-nav">
+                       <li><a href="request_inquiry.html"><i class="icon-search"></i> Inquiry Request </a></li>
+                   </ul>
+               </li>
+               <li><a href="login.html"><i class="icon-signin"></i> Logout </a></li>
+           </ul>
+        </div>
+        <!--END MENU SECTION -->
+
+<!-- ######################################################################## -->
+
+        <!--PAGE CONTENT -->
+        <div id="content">
+             
+            <div class="inner">
+
+<!-- ######################################################################## -->
+
+                <!-- BEGIN PAGE TITLE -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 style="color:#666666;"> <i class=" icon-search"></i> Inquiry Request </h3>
+                        <h4>Inquiry SETUP / CANCEL / CLAIM Request</h4>
+                    </div>
+                </div>
+                <hr />
+                <!-- END PAGE TITLE -->
+<!-- ######################################################################## -->
+                <!-- BEGIN INQUIRY FORM -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="box">
+                            <header>
+                                <div class="icons"><i class="icon-th-large"></i></div>
+                                <h5>Inquiry</h5>
+                                <div class="toolbar">
+                                    <ul class="nav">
+                                        <li>
+                                            <div class="btn-group">
+                                                <a class="accordion-toggle btn btn-xs minimize-box" data-toggle="collapse" href="#inquiryFormBox">
+                                                    <i class="icon-chevron-up"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </header>
+                            <div id="inquiryFormBox" class="accordion-body collapse in body">
+                                <form action="#" class="form-horizontal" id="block-validate">
+                                    <div class="form-group">
+                                    	<div class="col-lg-1">&nbsp;</div>
+                                        <label class="control-label col-lg-2">Tx Ref</label>
+                                        <div class="col-lg-3">
+                                            <input type="text" id="iTxRef" name="iTxRef" class="form-control" />
+                                        </div>
+                                        <label class="control-label col-lg-2">Request Date</label>
+                                        <div class="col-lg-3">
+                                        	<input type="date" id="iDtm" name="iDtm" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-1">&nbsp;</div>
+                                    </div>
+                                    <div class="form-group">
+                                    	<div class="col-lg-1">&nbsp;</div>
+                                        <label class="control-label col-lg-2">Vendor Tax ID</label>
+                                        <div class="col-lg-3">
+                                            <input type="text" id="iVendorTaxID" name="iVendorTaxID" class="form-control" />
+                                        </div>
+                                        <label class="control-label col-lg-2">Vendor Name</label>
+                                        <div class="col-lg-3">
+                                        	<input type="text" id="iVendorName" name="iVendorName" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-1">&nbsp;</div>
+                                    </div>
+                                    <div class="form-group">
+                                    	<div class="col-lg-1">&nbsp;</div>
+                                        <label class="control-label col-lg-2">LG No.</label>
+                                        <div class="col-lg-3">
+                                            <input type="text" id="iLgNo" name="iLgNo" class="form-control" />
+                                        </div>
+                                        <label class="control-label col-lg-2">Bond Type</label>
+                                        <div class="col-lg-3">
+	                                        <select name="iAppvStatus" id="iAppvStatus" class="form-control">
+	                                            <option value="">----- ALL -----</option>
+	                                            <option value="01">01 - xxxx xx</option>
+	                                            <option value="02">02 - xxxx xx</option>
+	                                            <option value="03">03 - xxxx xx</option>
+	                                            <option value="04">04 - xxxx xx</option>
+	                                            <option value="05">05 - xxxx xx</option>
+	                                        </select>
+                                        </div>
+                                        <div class="col-lg-1">&nbsp;</div>
+                                    </div>
+                                    <div class="form-group">
+                                    	<div class="col-lg-1">&nbsp;</div>
+                                        <label class="control-label col-lg-2">Proj No</label>
+                                        <div class="col-lg-3">
+                                            <input type="text" id="iProjNo" name="iProjNo" class="form-control" />
+                                        </div>
+                                        <label class="control-label col-lg-2">Request Type</label>
+                                        <div class="col-lg-3">
+	                                        <select name="iRequestType" id="iRequestType" class="form-control">
+	                                            <option value="">----- ALL -----</option>
+	                                            <option value="0004">Setup</option>
+	                                            <option value="0005">Cancel</option>
+	                                            <option value="0006">Claim</option>
+	                                        </select>
+                                        </div>
+                                        <div class="col-lg-1">&nbsp;</div>
+                                    </div>
+                                    <div class="form-group">
+                                    	<div class="col-lg-1">&nbsp;</div>
+                                        <label class="control-label col-lg-2">ALS Status</label>
+                                        <div class="col-lg-3">
+	                                        <select name="iAlsStatus" id="iAlsStatus" class="form-control">
+	                                            <option value="">----- ALL -----</option>
+	                                            <option value="AP">Approved</option>
+	                                            <option value="RJ">Rejected</option>
+	                                        </select>
+                                        </div>
+                                        <label class="control-label col-lg-2">&nbsp;</label>
+                                        <div class="col-lg-3">&nbsp;</div>
+                                        <div class="col-lg-1">&nbsp;</div>
+                                    </div>
+                                    <div class="form-group">
+                                    	<div class="col-lg-1">&nbsp;</div>
+                                        <label class="control-label col-lg-2">Approval Status</label>
+                                        <div class="col-lg-3">
+	                                        <select name="iAppvStatus" id="iAppvStatus" class="form-control">
+	                                            <option value="">----- ALL -----</option>
+	                                            <option value="AP">Approved</option>
+	                                            <option value="RJ">Rejected</option>
+	                                        </select>
+                                        </div>
+                                        <label class="control-label col-lg-2">Approval User</label>
+                                        <div class="col-lg-3">
+                                            <input type="text" id="iApproveBy" name="iApproveBy" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-1">&nbsp;</div>
+                                    </div>
+                                    <div class="form-group">
+                                    	<div class="col-lg-1">&nbsp;</div>
+                                        <label class="control-label col-lg-2">Approval Dtm From</label>
+                                        <div class="col-lg-3">
+                                        	<input type="date" id="iApprovalDtmFrom" name="iApprovalDtmFrom" class="form-control" />
+                                        </div>
+                                        <label class="control-label col-lg-2">To</label>
+                                        <div class="col-lg-3">
+                                        	<input type="date" id="iApprovalDtmTo" name="iApprovalDtmTo" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-1">&nbsp;</div>
+                                    </div>
+                                    
+                                    <div class="form-actions no-margin-bottom col-lg-12" style="text-align:center;">
+                                        <input id="inquiryBtn" name="inquiryBtn" type="button" value="Search" class="btn btn-primary btn-sm" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BEGIN REQUEST DETAIL -->
+				<div class="col-lg-12">
+					<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog" style="width:800px;">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title" id="H2">Request Detail</h4>
+								</div>
+								<div class="modal-body">
+									<form role="form" class="form-horizontal">
+										<div class="alert alert-success">
+											<div class="form-group">
+												<label class="control-label col-lg-2">TxRef</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">1114000000000000001</span></div>
+												<label class="control-label col-lg-2">Dtm</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">04/10/2014 00:00:01</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Proj No</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">22200000001</span></div>
+												<label class="control-label col-lg-2">Vendor Tax ID</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">7205654000000</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Bond Type</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">01 - xxx xxx</span></div>
+												<label class="control-label col-lg-2">Seq No</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">1</span></div>
+											</div>
+										</div>
+										<div class="alert alert-info">
+											<div class="form-group">
+												<div class="col-lg-12"><b>Latest Approval  Status</b></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Approve Status</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">Approved</span></div>
+												<label class="control-label col-lg-2">Approved Amount</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">1,001.00</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Reason</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">xxx xxx xxx</span></div>
+												<label class="control-label col-lg-2">&nbsp;</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">&nbsp;</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Approved Datetime</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">12/05/2015 13:20:01</span></div>
+												<label class="control-label col-lg-2">Approved By</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">sXXXXX</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Bank Code</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">XXX</span></div>
+												<label class="control-label col-lg-2">Bank Addr</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">xxx</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Branch Code</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">XXX</span></div>
+												<label class="control-label col-lg-2">Branch Name</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">xxx</span></div>
+											</div>
+										</div>
+										<!-- BEGIN REQUEST DETAIL -->
+										<div class="alert alert-warning">
+											<div class="form-group">
+												<div class="col-lg-12"><b>Transaction Info</b></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Txn Status</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">Success</span></div>
+												<label class="control-label col-lg-2">Process Datetime</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">12/05/2015 13:21:01</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Msg Code</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">01</span></div>
+												<label class="control-label col-lg-2">Msg Desc</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">xxx xxxx</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">ALS Status</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">Approved</span></div>
+												<label class="control-label col-lg-2">ALS Msg</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">&nbsp;</span></div>
+											</div>
+										</div>
+										<div class="alert alert-info" style="background-color: #EFEFEF;border-color: #CDCDCD;color: #666666;">
+											<div class="form-group">
+												<div class="col-lg-12"><b>Request Info</b></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Request Type</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">Setup</span></div>
+												<label class="control-label col-lg-2">&nbsp;</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">&nbsp;</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">LG No.</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">20150528000100</span></div>
+												<label class="control-label col-lg-2">ALS Account</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">XXXXXXXXXX</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">TxRef</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">1114000000000000001</span></div>
+												<label class="control-label col-lg-2">Request Dtm</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">04/10/2014 00:00:01</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Proj No</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">22200000001</span></div>
+												<label class="control-label col-lg-2">Proj Name</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">ประกวดราคาซื้องานสื่อเผยแพร่...(ทดสอบ LG Online)</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Vendor Tax ID</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">7205654000000</span></div>
+												<label class="control-label col-lg-2">Vendor Name</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">บริษัท ทดสอบ จำกัด</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Bond Type</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">01</span></div>
+												<label class="control-label col-lg-2">Dept Code</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">0304</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Seq No</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">1</span></div>
+												<label class="control-label col-lg-2">Consider Desc</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">รายการพิจารณาประเภทรวม</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Consider Money</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">0.00</span></div>
+												<label class="control-label col-lg-2">Guarantee Amt</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">1,001.00</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Comp ID</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">014</span></div>
+												<label class="control-label col-lg-2">User ID</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">014</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">End Dte</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">2015-08-15</span></div>
+												<label class="control-label col-lg-2">Start Dte</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">2015-05-15</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Proj Amt</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">2,000,000.00</span></div>
+												<label class="control-label col-lg-2">Proj Own Name</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">กรมบัญชีกลาง</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Cost Center</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">0300400000</span></div>
+												<label class="control-label col-lg-2">Cost Center Name</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">กรมบัญชีกลาง</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Contract No</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">กค. 0304 234/2558</span></div>
+												<label class="control-label col-lg-2">Contract Date</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">2014-09-27</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Guarantee Price</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">2,000,000.00</span></div>
+												<label class="control-label col-lg-2">Guarantee Percent</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">5.00</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Advance Guarantee Price</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">0.00</span></div>
+												<label class="control-label col-lg-2">Advance Payment</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">0.00</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Works Guarantee Price</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">0.00</span></div>
+												<label class="control-label col-lg-2">Works Guarantee Percent</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">0.00</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Collection Phase</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">1,2</span></div>
+												<label class="control-label col-lg-2">Document No</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">กค. 0304 23/2557</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-2">Document Date</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">2013-07-30</span></div>
+												<label class="control-label col-lg-2">Expire Date</label>
+												<div class="col-lg-4" style="padding-top:8px;"><span class="form-control-static">2013-10-30</span></div>
+											</div>
+										</div>
+										<div class="alert alert-warning">
+											<div class="form-group">
+												<div class="col-lg-12"><b>Approval  Log</b></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-1">Status</label>
+												<div class="col-lg-1" style="padding-top:8px;"><span class="form-control-static">Approved</span></div>
+												<label class="control-label col-lg-1">Reason</label>
+												<div class="col-lg-3" style="padding-top:8px;"><span class="form-control-static">&nbsp;</span></div>
+												<label class="control-label col-lg-1">Dtm</label>
+												<div class="col-lg-3" style="padding-top:8px;"><span class="form-control-static">12/05/2015 13:20:01</span></div>
+												<label class="control-label col-lg-1">User</label>
+												<div class="col-lg-1" style="padding-top:8px;"><span class="form-control-static">sXXXXX</span></div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-lg-1">Status</label>
+												<div class="col-lg-1" style="padding-top:8px;"><span class="form-control-static">Rejected</span></div>
+												<label class="control-label col-lg-1">Reason</label>
+												<div class="col-lg-3" style="padding-top:8px;"><span class="form-control-static">เอกสารไม่ครบ</span></div>
+												<label class="control-label col-lg-1">Dtm</label>
+												<div class="col-lg-3" style="padding-top:8px;"><span class="form-control-static">12/05/2015 10:10:01</span></div>
+												<label class="control-label col-lg-1">User</label>
+												<div class="col-lg-1" style="padding-top:8px;"><span class="form-control-static">sXXXXX</span></div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!-- END REQUEST DETAIL -->
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END REQUEST DETAIL= -->
+                
+                <hr />
+                <!-- END INQUIRY FORM -->
+
+<!-- ######################################################################## -->
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <b>Result List</b>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="nav nav-tabs">
+                                <li id="dataListTabBtn" class="active"><a href="#dataListTab" data-toggle="tab">Data List</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="dataListTab">
+                                    
+                                    <!-- BEGIN INQUIRY RESULT -->
+                                    <div id="inquiryLoading" style="text-align:center;display:none;"><div class="progress progress-striped active"><div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div></div></div>
+                                    <div class="row" id="inquiryResultPanel" style="display:none;">
+                                        <div class="col-lg-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <b>Inquiry Result</b>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped table-bordered table-hover" id="dataTables-result">
+                                                            <thead>
+	                                                            <tr style="white-space:nowrap">
+	                                                            	<th style="text-align:center;font-size:small;">Detail</th>
+	                                                                <th style="text-align:center;font-size:small;">TxRef</th>
+	                                                                <th style="text-align:center;font-size:small;">Vendor Name</th>
+	                                                                <th style="text-align:center;font-size:small;">Account No.</th>
+	                                                                <th style="text-align:center;font-size:small;">Guarantee Amt</th>
+	                                                                <th style="text-align:center;font-size:small;">Msg Code</th>
+	                                                                <th style="text-align:center;font-size:small;">Expire Date</th>
+	                                                                <th style="text-align:center;font-size:small;">Request Dtm</th>
+	                                                                <th style="text-align:center;font-size:small;">Proj No.</th>
+	                                                                <th style="text-align:center;font-size:small;">Proj Name</th>
+	                                                                <th style="text-align:center;font-size:small;">Start Date</th>
+	                                                                <th style="text-align:center;font-size:small;">End Date</th>
+	                                                                <th style="text-align:center;font-size:small;">Bond Type</th>
+	                                                                <th style="text-align:center;font-size:small;">ALS Msg</th>
+	                                                                <th style="text-align:center;font-size:small;">Approval Status</th>
+	                                                            	<th style="text-align:center;font-size:small;">Approval Dtm</th>
+	                                                                <th style="text-align:center;font-size:small;">Request Type</th>
+	                                                                <th style="text-align:center;font-size:small;">LG No.</th>
+	                                                                <th style="text-align:center;font-size:small;">Vendor Tax ID</th>
+	                                                                <th style="text-align:center;font-size:small;">Approval User</th>
+	                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                	<td style="text-align:center;font-size:small;">
+                            											<button type="button" class="btn btn-info btn-circle" data-toggle="modal" data-target="#detailModal"><i class="icon-search"></i></button>
+																	</td>
+	                                                                <td style="text-align:center;font-size:smaller;">1114000000000000001</td>
+	                                                                <td style="text-align:left;font-size:smaller;">บริษัท ทดสอบ จำกัด</td>
+	                                                                <td style="text-align:center;font-size:smaller;">XXXXXXXXXXXXXX</td>
+	                                                                <td style="text-align:right;font-size:smaller;">1,001.00</td>
+	                                                                <td style="text-align:center;font-size:smaller;">01 - xxxx xxxxx xxxx</td>
+	                                                                <td style="text-align:center;font-size:smaller;">04/10/2015</td>
+	                                                                <td style="text-align:center;font-size:smaller;">04/10/2014 00:00:01</td>
+	                                                                <td style="text-align:center;font-size:smaller;">22200000001</td>
+	                                                                <td style="text-align:left;font-size:smaller;">ประกวดราคาซื้องานสื่อเผยแพร่...(ทดสอบ LG Online)</td>
+	                                                                <td style="text-align:center;font-size:smaller;">04/10/2014</td>
+	                                                                <td style="text-align:center;font-size:smaller;">04/12/2014</td>
+	                                                                <td style="text-align:center;font-size:smaller;">01 - xxx xxx</td>
+	                                                                <td style="text-align:center;font-size:smaller;">AM0001 - XXX XXX XXX</td>
+	                                                                <td style="text-align:center;font-size:smaller;">Approved</td>
+	                                                            	<td style="text-align:center;font-size:smaller;">05/10/2014 10:00:01</td>
+	                                                                <td style="text-align:center;font-size:smaller;">Setup</td>
+	                                                                <td style="text-align:center;font-size:smaller;">20141004000100</td>
+	                                                                <td style="text-align:center;font-size:smaller;">7205654000000</td>
+	                                                                <td style="text-align:center;font-size:smaller;">s69601</td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tfoot></tfoot>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END INQUIRY RESULT -->
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+
+
+            </div>
+                
+                
+                
+<!-- ######################################################################## -->
+                
+            </div>
+
+        </div>
+        <!--END PAGE CONTENT -->
+        
+        
+    
+
+    <!--END MAIN WRAPPER -->
+    
+<!-- ######################################################################## -->
+
+    <!-- FOOTER -->
+    <div id="footer">
+        <p>&copy;  Siam Commercial Bank Pcl. &nbsp;2015 &nbsp;</p>
+    </div>
+    <!--END FOOTER -->
+
+<!-- ######################################################################## -->
+    
+     <!-- GLOBAL SCRIPTS -->
+    <script src="assets/plugins/jquery-2.0.3.min.js"></script>
+     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <!-- END GLOBAL SCRIPTS -->
+
+    <!-- PAGE LEVEL SCRIPTS -->
+
+    <!-- form validation -->
+    <script src="assets/plugins/validationengine/js/jquery.validationEngine.js"></script>
+    <script src="assets/plugins/validationengine/js/languages/jquery.validationEngine-en.js"></script>
+    <script src="assets/plugins/jquery-validation-1.11.1/dist/jquery.validate.min.js"></script>
+    <script src="assets/js/validationInit.js"></script>
+    
+    <!-- data table -->
+    <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+    
+    <script src="assets/plugins/jasny/js/bootstrap-fileupload.js"></script>
+    <script>
+        //$(function () { formValidation(); });
+        $(document).ready(function () {
+            $('#dataTables-result').dataTable({
+            	"sDom": '<"datatable-scroll"t><"F"ilp>',
+            	"dom": '<"top"i>rt<"bottom"flp><"clear">',
+                "bProcessing": true,
+                "bScrollCollapse": true,
+                "bFilter": false,
+                "bJQueryUI": false
+            });
+            
+            $("#inquiryBtn").click(function(){
+                $("#inquiryBtn").attr("disabled",true);
+                $("#inquiryResultPanel").show();
+                $("#inquiryBtn").attr("disabled",false);
+                return true;
+            });
+            
+            $("#detailModal").dialog();
+        });
+        
+        function resetForm(){
+        	$("#maintainFormTitle").html("<h4>Create Control Account</h4>");
+        	$("#mode").val("create");
+        	$("#account").val("");
+        	$("#messageCode").val("");
+        	$("#messageDesc").val("");
+        	$("#createBy").html("");
+        	$("#createDatetime").html("");
+        	$("#updateBy").html("");
+        	$("#updateDatetime").html("");
+        	$("#createUpdateInfo").hide();
+        }
+        
+        function setForm(account){
+        	$("#maintainFormTitle").html("<h4>Update Control Account</h4>");
+        	$("#mode").val("update");
+        	$("#account").val("xxxxxxxxxx");
+        	$("#messageCode").val("xxx");
+        	$("#messageDesc").val("xxx xxx xxxxx xxxxxx xxx.");
+        	$("#createBy").html("sXXXXX");
+        	$("#createDatetime").html("28/05/2015 10:11:05");
+        	$("#updateBy").html("sYYYYY");
+        	$("#updateDatetime").html("29/05/2015 12:22:15");
+        	$("#createUpdateInfo").show();
+        }
+        
+        function toggleTab(tabType){
+        	if(tabType=="form"){
+            	$("#dataListTabBtn").removeClass('active');
+            	$("#dataListTab").attr('class', 'tab-pane fade');
+            	$("#maintainFormTabBtn").attr('class', 'active');
+            	$("#maintainFormTab").attr('class', 'tab-pane fade in active');
+        	}else{
+            	$("#maintainFormTabBtn").removeClass('active');
+            	$("#maintainFormTab").attr('class', 'tab-pane fade');
+            	$("#dataListTabBtn").attr('class', 'active');
+            	$("#dataListTab").attr('class', 'tab-pane fade in active');
+        	}
+        }
+        
+        function viewItem(){
+        	toggleTab("form");
+        	setForm(account);
+        }
+        </script>
+     <!--END PAGE LEVEL SCRIPTS -->
+
+<!-- ######################################################################## -->
+
+</body>
+
+    <!-- END BODY -->
+</html>

@@ -1,0 +1,101 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package th.co.scb.model.eguarantee;
+
+/**
+ *
+ * @author s53689
+ */
+ //UR58120031 created by Tana L. @12022016
+public class EEDReviewLog {
+    private int gpGuaranteeId;
+    private String reviewStatus;
+    private String accountNo;
+    private String reviewDtm;
+    private String reviewBy;
+    private String reviewReason;
+	private String oldEndDate;
+    private String newEndDate;
+    
+	public EEDReviewLog(int gpGuaranteeId, String reviewStatus,
+			String accountNo, String reviewDtm, String reviewBy,
+			String reviewReason, String oldEndDate, String newEndDate) {
+
+		this.gpGuaranteeId = gpGuaranteeId;
+		this.reviewStatus = reviewStatus;
+		this.accountNo = accountNo;
+		this.reviewDtm = reviewDtm;
+		this.reviewBy = reviewBy;
+		this.reviewReason = reviewReason;
+		this.oldEndDate = oldEndDate;
+		this.newEndDate = newEndDate;
+	}
+
+	public int getGpGuaranteeId() {
+		return gpGuaranteeId;
+	}
+
+	public void setGpGuaranteeId(int gpGuaranteeId) {
+		this.gpGuaranteeId = gpGuaranteeId;
+	}
+
+	public String getReviewStatus() {
+		return reviewStatus;
+	}
+
+	public void setReviewStatus(String reviewStatus) {
+		this.reviewStatus = reviewStatus;
+	}
+
+	public String getAccountNo() {
+		return accountNo;
+	}
+
+	public void setAccountNo(String accountNo) {
+		this.accountNo = accountNo;
+	}
+
+	public String getReviewDtm() {
+		return reviewDtm;
+	}
+
+	public void setReviewDtm(String reviewDtm) {
+		this.reviewDtm = reviewDtm;
+	}
+
+	public String getReviewBy() {
+		return reviewBy;
+	}
+
+	public void setReviewBy(String reviewBy) {
+		this.reviewBy = reviewBy;
+	}
+
+	public String getReviewReason() {
+		return reviewReason;
+	}
+
+	public void setReviewReason(String reviewReason) {
+		this.reviewReason = reviewReason;
+	}
+
+	public String getOldEndDate() {
+		return oldEndDate;
+	}
+
+	public void setOldEndDate(String oldEndDate) {
+		this.oldEndDate = oldEndDate;
+	}
+
+	public String getNewEndDate() {
+		return newEndDate;
+	}
+
+	public void setNewEndDate(String newEndDate) {
+		this.newEndDate = newEndDate;
+	}
+    
+}

@@ -1,0 +1,301 @@
+package th.co.scb.controller.eguarantee;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import th.co.scb.model.ETime;
+import th.co.scb.model.LogEBXML;
+import th.co.scb.model.eguarantee.EGuarantee;
+import th.co.scb.service.ALSMQService;
+import th.co.scb.service.DocRunningService;
+import th.co.scb.service.ETimeService;
+import th.co.scb.service.LogEBMXLService;
+import th.co.scb.service.OffHostService;
+import th.co.scb.service.eguarantee.EGuaranteeService;
+import th.co.scb.service.mq.EGuaranteeMQMessageException;
+import th.co.scb.service.mq.MQConnectorFailedException;
+import th.co.scb.util.Constants;
+import th.co.scb.util.XMLUtil;
+
+/**
+ * 
+ * Servlet implementation class EGuaranteeRequestControl
+ * 
+ */
+@WebServlet("/EGuaranteeRequestControl_backup100955")
+public class EGuaranteeRequestControl_backup100955 extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	private static final Logger logger = LoggerFactory.getLogger(EGuaranteeRequestControl.class);
+	private LogEBMXLService logEBXMLService = new LogEBMXLService();
+       
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+		
+		//logger.debug("------ in EGuaranteeRequestControl ------------");
+		//myUrl : http://xxxxxxxx/EGuarantee/EGuaranteeRequestControl
+		//msg : xml={xmlString}[;;;;;type{web or batch};;;;;lg_no] -->//[option]
+		
+		ALSMQService alsMQService = null;
+		OffHostService offHostService = null;
+		EGuaranteeService eGuaranteeService = null;
+		ETimeService eTimeService = null;
+		DocRunningService docRunningService = null;
+		//TranOfflineService tranOfflineService = null;
+		
+		LogEBXML logEBXML = null;
+		EGuarantee eguarantee = null;
+		
+		String responseXML = "";
+		boolean isDupEGuarantee = false;
+		
+		try{
+			
+			eGuaranteeService = new EGuaranteeService();
+			offHostService = new OffHostService();
+			alsMQService = new ALSMQService();
+			eTimeService = new ETimeService();
+			
+			//---------- get request ---------
+			logEBXML = readInputString(request);
+			
+			//xmlInput from EBXML to Object
+			eguarantee = eGuaranteeService.ebxmlToObject(logEBXML.getXmlInput());
+			
+			//-----------process MQ Or offline process at E-Guarantee ----
+			if(logEBXML.getType().equals(Constants.TypeConnect.BATCH)){
+				//logger.debug("======== in batch process ==========");
+				//connect MQ
+				eguarantee = alsMQService.sendMQMessage(eguarantee);
+				
+			}else{//web 
+				
+				//logger.debug("======== in web process ==========");
+				ETime eTime = eTimeService.isTimeOffHostALS();
+				boolean isTimeOffHostALS = eTime.isTimeOffHostALS();
+				if(isTimeOffHostALS == true){
+					eguarantee.setAlsOnline(Constants.StatusALSOnline.NO);
+	        	}else{
+	        		eguarantee.setAlsOnline(Constants.StatusALSOnline.YES);
+	        	}
+				keepLogInputEBXML(logEBXML, isTimeOffHostALS);
+				
+				
+				//check dup -- case deposit --> check case in method isDupEGuarantee
+				isDupEGuarantee = eGuaranteeService.isDupEGuarantee(eguarantee);
+				if(isDupEGuarantee == true){// is dup
+					
+					//set massage code error 
+					eguarantee.setMessageCode(Constants.MessageCode.DUP_TRANSACTION);
+					
+				}else{
+
+					//check time -- 06.00-23.00 host online, 23.00-06.00 off host
+					if(isTimeOffHostALS == true){// is 23.00-06.00 off host
+						logger.debug("======== in host offline ==========");
+					
+						eguarantee = offHostService.manageEGuaranteeOffline(eguarantee, logEBXML.getXmlInput());
+						
+					}else{// is 06.00-23.00 host online
+						logger.debug("======== in host online ==========");
+						//connect MQ
+						eguarantee = alsMQService.sendMQMessage(eguarantee);
+						
+					} 
+					
+				}
+
+			}
+
+		}catch(MQConnectorFailedException m){
+			
+			logger.error("Error Request E-Guarantee......" + m.getMessage());
+			eguarantee.setEguaranteeStatus(Constants.EGuarantee.STATUS_INFO);
+			eguarantee.setMessageCode(Constants.MessageCode.UNABLE_TO_PROCESS);
+			
+		}catch(EGuaranteeMQMessageException eg){
+			
+			logger.error("Error Request E-Guarantee......" + eg.getMessage());
+			eguarantee.setEguaranteeStatus(Constants.EGuarantee.STATUS_INFO);
+			eguarantee.setMessageCode(Constants.MessageCode.UNABLE_TO_PROCESS);
+			
+		}catch (Exception e) {
+			
+			// --: handle exception
+			logger.error("Error Request E-Guarantee......" + e.getMessage());
+			eguarantee.setEguaranteeStatus(Constants.EGuarantee.STATUS_INFO);
+			eguarantee.setMessageCode(Constants.MessageCode.UNABLE_TO_PROCESS);
+			//e.printStackTrace();
+		}
+		
+		try{
+			
+			docRunningService = new DocRunningService();
+			//tranOfflineService = new TranOfflineService();
+			
+			//gen bank transactin No.
+			docRunningService = new DocRunningService();
+			eguarantee.setBankTransactionNo(docRunningService.genBankTransactionNo());
+			
+			//------------------- response ---------------
+			if(logEBXML.getType().equals(Constants.TypeConnect.BATCH)){
+				
+				//reformat for Batch 06.00
+				responseXML = eGuaranteeService.objectToXmlBatchReturn(eguarantee, request);
+				
+			}else{//web
+				
+				//reformat for EBXML
+				responseXML = eGuaranteeService.objectToEbxmlReturn(eguarantee, request);
+				
+				//keep log return result to EBXML
+				logEBXML.setXmlOutput(responseXML);
+				keepLogOutputEBXML(logEBXML);
+				
+			}
+			
+			//------------- response to ---------------------
+	        OutputStreamWriter out = new OutputStreamWriter(response.getOutputStream(), "UTF-8");
+	        out.write(responseXML);
+	        out.close();
+	        
+		}catch (Exception e) {
+			// --: handle exception
+			logger.error("Error Response E-Guarantee......" + e.getMessage());
+		}
+
+	}
+	
+	private void keepLogOutputEBXML(LogEBXML logEBXML) throws Exception{
+		try{
+        	logEBXMLService.updateLogEBXML(logEBXML);
+        }catch (Exception e) {
+			// --: handle exception
+        	//e.printStackTrace();
+        	throw  new Exception(e.getMessage());
+		}
+	}
+	
+	private void keepLogInputEBXML(LogEBXML logEBXML, boolean isTimeOffHostALS) throws Exception{
+
+        try{
+        	if(isTimeOffHostALS == true){
+        		logEBXML.setAlsOnline(Constants.StatusALSOnline.NO);
+        	}else{
+        		logEBXML.setAlsOnline(Constants.StatusALSOnline.YES);
+        	}
+        	
+        	logEBXML = logEBXMLService.insertLogEBXML(logEBXML);
+        }catch (Exception e) {
+			// --: handle exception
+        	//e.printStackTrace();
+        	throw  new Exception(e.getMessage());
+		}
+        
+	}
+	
+	private LogEBXML readInputString(HttpServletRequest request) throws Exception{
+		
+		LogEBXML logEBXML = new LogEBXML();
+		
+		//----------- Reading a request InputStream ---------------
+		StringBuilder stringBuilder = new StringBuilder();
+        BufferedReader bufferedReader = null;
+        String inputStr = "";
+
+        try {
+            InputStream inputStream = request.getInputStream();
+
+            if (inputStream != null) {
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream,Constants.ENCODING));
+
+                String b = "";
+                while ((b = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(b.trim());
+                }
+            } else {
+                stringBuilder.append("");
+            }
+        } catch (IOException ex) {
+        	logger.error("Error reading the request body…");
+        	throw  new Exception(ex.getMessage());
+        } finally {
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException ex) {
+                	logger.error("Error closing bufferedReader…");
+                	throw  new Exception(ex.getMessage());
+                }
+            }
+        }
+
+        inputStr = stringBuilder.toString();
+        //System.out.println("inputStr : " + inputStr);
+        
+        if(inputStr != null && inputStr.length() > 0){
+        	
+	        String[] str = inputStr.split(";;;;;");
+	        String xmlStr = str[0];
+	        String type = "";
+	        String lgNo = "";
+	        
+	        try{
+	        	type = str[1];
+	        }catch (Exception e) {
+				// --: handle exception
+	        	type = "web";
+			}
+	        
+	        try{
+	        	lgNo = str[2];
+	        }catch (Exception e) {
+				// --: handle exception
+	        	lgNo = "";
+			}
+	        
+	        //System.out.println("type : " + type);
+	        //System.out.println("xmlStr : " + xmlStr);
+	        //System.out.println("lgNo : " + lgNo);
+	        
+	        logEBXML.setType(type);
+	        logEBXML.setXmlInput(xmlStr);
+	        logEBXML.setLgNo(lgNo);
+	
+	        String customsRefNo = XMLUtil.getTagValue("MsgId", xmlStr);
+	        logEBXML.setCustomsRefNo(customsRefNo);
+	        
+        }
+
+		return logEBXML;
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// --- Auto-generated method stub
+		processRequest(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// -- Auto-generated method stub
+		processRequest(request, response);
+	}
+
+}

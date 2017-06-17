@@ -1,0 +1,25 @@
+<DocRq>
+	<ServiceName>$serviceName</ServiceName>
+	<SignonSessionRq>
+		<user_id>$userId</user_id>
+		<session>$session</session>
+		<lang>$lang</lang>
+	</SignonSessionRq>
+	<LoanAcctInfoInqRq>
+		<CustId>
+			<SPName>$spName</SPName>
+		</CustId>
+		<RqUID>$rqUID</RqUID>
+		<LOGPARA>
+			<TUSER>$tUSER</TUSER>
+			<TBRANCH>$tBRANCH</TBRANCH>
+			<TSOURCE>$tSOURCE</TSOURCE>
+		</LOGPARA>
+                <LoanAcctId>
+                    <AcctId>$acctid</AcctId>
+                    <AcctType>$accttype</AcctType>
+                </LoanAcctId>
+                <DocNo/>
+                <EffDt>$effDt</EffDt>
+	</LoanAcctInfoInqRq>
+</DocRq>

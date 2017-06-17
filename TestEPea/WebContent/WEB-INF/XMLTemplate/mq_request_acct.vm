@@ -1,0 +1,21 @@
+<DocRq>
+	<ServiceName>$serviceName</ServiceName>
+	<SignonSessionRq>
+		<user_id>$userId</user_id>
+		<session>$session</session>
+		<lang>$lang</lang>
+	</SignonSessionRq>
+	<LoanAcctInqByTaxidRq>
+		<CustId>
+			<SPName>$spName</SPName>
+		</CustId>
+		<RqUID>$rqUID</RqUID>
+		<LOGPARA>
+			<TUSER>$tUSER</TUSER>
+			<TBRANCH>$tBRANCH</TBRANCH>
+			<TSOURCE>$tSOURCE</TSOURCE>
+		</LOGPARA>
+		<EffDt>$effDt</EffDt>
+		<TaxID>$taxId</TaxID>
+	</LoanAcctInqByTaxidRq>
+</DocRq>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri name="urn:un:unece:uncefact:documentation:standard:CoreComponentType:2" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/CoreComponentType_2p0.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:NPMS.CAMT.054.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/npms.camt.054.01.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:NPMS.PAIN.002.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/npms.pain.002.01.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:NPMS.PAIN.008.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/npms.pain.008.01.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:RTC.G1C.002.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/rtc.g1c.002.01.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:RTC.G1C.007.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/rtc.g1c.007.01.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:RTC.G1C.054.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/rtc.g1c.054.01.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:RTC.G1N.002.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/rtc.g1n.002.01.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:RTC.G1N.008.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/rtc.g1n.008.01.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:RTC.G1N.054.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/rtc.g1n.054.01.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:RTC.G2N.002.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/rtc.g2n.002.01.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:RTC.G2N.007.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/rtc.g2n.007.01.xsd"/>
+  <uri name="urn:iso:std:iso:20022:tech:xsd:RTC.G2N.054.01" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/rtc.g2n.054.01.xsd"/>
+  <uri name="http://www.w3.org/2000/09/xmldsig#" uri="file:///D:/eclipse/workspace/TestXSD2/src/resources/xmldsig-core-schema.xsd"/>
+</catalog>

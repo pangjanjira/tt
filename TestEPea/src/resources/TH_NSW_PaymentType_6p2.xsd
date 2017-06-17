@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created New Schema for Payment (Thai Customs Department) -->
+<!-- Customs by O_Pattraporn (Smart Alliance Co., Ltd.)  2012-07-15 -->
+<!-- Refer standard - SNMP, CAMP -->
+<!-- 1.npms.pain.008.01 , CustomerDirectDebitInitiation, โครงสร้างเอกสารการตัดบัญชี (e-Payment) -->
+<!-- 2.rtc.g1n.008.01 , CustomerGuaranteeDeposit, โครงสร้างเอกสารการตั้งภาระค้ำประกัน (e-Guarantee Deposit) -->
+<!-- 3.rtc.g1c.007.01 , CustomerGuaranteeDepositCancel, โครงสร้างเอกสารยกเลิกการตั้งภาระค้ำประกัน (e-Guarantee Deposit Cancellation)  -->
+<!-- 4.rtc.g2n.007.01 , CustomerGuaranteeRefund, โครงสร้างเอกสารการลดภาระค้ำประกัน (e-Guarantee Refund) -->
+<!-- 5.npms.camt.054.01 , BankToCustomerDebitCreditNotification, โครงสร้างเอกสารตอบกลับการตัดบัญชี (e-Payment) -->
+<!-- 6.npms.pain.002.01 , CustomerPaymentStatusReport, โครงสร้างเอกสารตอบกลับการตัดบัญชี (e-Payment) -->
+<!-- 7.rtc.g1n.002.01 , CustomerGuaranteeDepositStatusReport, โครงสร้างเอกสารตอบกลับการตั้งภาระค้ำประกัน (e-Guarantee Deposit) -->
+<!-- 8.rtc.g1n.054.01 , BankToCustomerGuaranteeDepositNotification, โครงสร้างเอกสารตอบกลับการตั้งภาระค้ำประกัน (e-Guarantee Deposit) -->
+<!-- 9.rtc.g1c.002.01 , CustomerGuaranteeDepositCancelStatusReport, โครงสร้างเอกสารการตอบกลับการยกเลิกตั้งภาระค้ำประกัน (e-Guarantee Deposit Cancellation) -->
+<!-- 10.rtc.g1c.054.01 , BankToCustomerGuaranteeDepositCancelNotification, โครงสร้างเอกสารตอบกลับการยกเลิกตั้งภาระค้ำประกัน (e-Guarantee Deposit Cancellation) -->
+<!-- 11.rtc.g2n.002.01 , CustomerGuaranteeRefundStatusReport, โครงสร้างเอกสารตอบกลับการลดภาระค้ำประกัน (e-Guarantee Refund) -->
+<!-- 12.rtc.g2n.054.01 , BankToCustomerGuaranteeRefundNotification, โครงสร้างเอกสารตอบกลับการลดภาระค้ำประกัน (e-Guarantee Refund) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="urn:th:singlewindow:xsd:payment:6" 
+	xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
+	xmlns:pain008="urn:iso:std:iso:20022:tech:xsd:NPMS.PAIN.008.01" 
+	xmlns:g1n008="urn:iso:std:iso:20022:tech:xsd:RTC.G1N.008.01" 
+	xmlns:g1c007="urn:iso:std:iso:20022:tech:xsd:RTC.G1C.007.01" 
+	xmlns:g2n007="urn:iso:std:iso:20022:tech:xsd:RTC.G2N.007.01" 
+	xmlns:camt054="urn:iso:std:iso:20022:tech:xsd:NPMS.CAMT.054.01" 
+	xmlns:pain002="urn:iso:std:iso:20022:tech:xsd:NPMS.PAIN.002.01" 
+	xmlns:cct="urn:un:unece:uncefact:documentation:standard:CoreComponentType:2" 
+	xmlns:g1n002="urn:iso:std:iso:20022:tech:xsd:RTC.G1N.002.01" 
+	xmlns:g1n054="urn:iso:std:iso:20022:tech:xsd:RTC.G1N.054.01" 
+	xmlns:g1c002="urn:iso:std:iso:20022:tech:xsd:RTC.G1C.002.01" 
+	xmlns:g1c054="urn:iso:std:iso:20022:tech:xsd:RTC.G1C.054.01" 
+	xmlns:g2n002="urn:iso:std:iso:20022:tech:xsd:RTC.G2N.002.01" 
+	xmlns:g2n054="urn:iso:std:iso:20022:tech:xsd:RTC.G2N.054.01" 
+	targetNamespace="urn:th:singlewindow:xsd:payment:6" elementFormDefault="qualified">
+<!-- 	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:NPMS.PAIN.008.01" schemaLocation="npms.pain.008.01.xsd"/> -->
+	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:RTC.G1N.008.01" schemaLocation="rtc.g1n.008.01.xsd"/>
+	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:RTC.G1C.007.01" schemaLocation="rtc.g1c.007.01.xsd"/>
+	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:RTC.G2N.007.01" schemaLocation="rtc.g2n.007.01.xsd"/>
+<!-- 	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:NPMS.CAMT.054.01" schemaLocation="npms.camt.054.01.xsd"/> -->
+<!-- 	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:NPMS.PAIN.002.01" schemaLocation="npms.pain.002.01.xsd"/> -->
+<!-- 	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:RTC.G1N.002.01" schemaLocation="rtc.g1n.002.01.xsd"/> -->
+	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:RTC.G1N.054.01" schemaLocation="rtc.g1n.054.01.xsd"/>
+<!-- 	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:RTC.G1C.002.01" schemaLocation="rtc.g1c.002.01.xsd"/> -->
+	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:RTC.G1C.054.01" schemaLocation="rtc.g1c.054.01.xsd"/>
+<!-- 	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:RTC.G2N.002.01" schemaLocation="rtc.g2n.002.01.xsd"/> -->
+	<xsd:import namespace="urn:iso:std:iso:20022:tech:xsd:RTC.G2N.054.01" schemaLocation="rtc.g2n.054.01.xsd"/>
+	<xsd:import namespace="urn:un:unece:uncefact:documentation:standard:CoreComponentType:2" schemaLocation="CoreComponentType_2p0.xsd"/>
+	<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
+	<xsd:simpleType name="Max35Text">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="DocumentHeaderType">
+		<xsd:sequence>
+			<xsd:element name="ID" type="cct:IDType" minOccurs="0"/>
+			<xsd:element name="Name" type="cct:TextType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IssueDateTime" type="cct:DateTimeType" minOccurs="0"/>
+			<xsd:element name="Purpose" type="cct:TextType" minOccurs="0"/>
+			<xsd:element name="LanguageID" type="cct:IDType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="VersionID" type="cct:IDType" minOccurs="0"/>
+			<xsd:element name="CategoryCode" type="cct:CodeType" minOccurs="0"/>
+			<xsd:element name="RegistrationID" type="tns:Max35Text"/>
+		</xsd:sequence>
+	</xsd:complexType>
+<!-- 	<xsd:element name="CustomerDirectDebitInitiation" type="tns:CustomerDirectDebitInitiationType"/> -->
+<!-- 	<xsd:complexType name="CustomerDirectDebitInitiationType"> -->
+<!-- 		<xsd:sequence> -->
+<!-- 			<xsd:element ref="tns:DocumentHeader"/> -->
+<!-- 			<xsd:element name="PaymentInformation" type="pain008:Document"/> -->
+<!-- 			<xsd:element ref="ds:Signature"/> -->
+<!-- 		</xsd:sequence> -->
+<!-- 	</xsd:complexType> -->
+	<xsd:element name="CustomerGuaranteeDeposit" type="tns:CustomerGuaranteeDepositType"/>
+	<xsd:complexType name="CustomerGuaranteeDepositType">
+		<xsd:sequence>
+			<xsd:element ref="tns:DocumentHeader"/>
+			<xsd:element name="PaymentInformation" type="g1n008:Document"/>
+			<xsd:element ref="ds:Signature" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CustomerGuaranteeDepositCancel" type="tns:CustomerGuaranteeDepositCancelType"/>
+	<xsd:complexType name="CustomerGuaranteeDepositCancelType">
+		<xsd:sequence>
+			<xsd:element ref="tns:DocumentHeader"/>
+			<xsd:element name="ReversalInformation" type="g1c007:Document"/>
+			<xsd:element ref="ds:Signature"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CustomerGuaranteeRefund" type="tns:CustomerGuaranteeRefundType"/>
+	<xsd:complexType name="CustomerGuaranteeRefundType">
+		<xsd:sequence>
+			<xsd:element ref="tns:DocumentHeader"/>
+			<xsd:element name="ReversalInformation" type="g2n007:Document"/>
+			<xsd:element ref="ds:Signature"/>
+		</xsd:sequence>
+	</xsd:complexType>
+<!-- 	<xsd:element name="BankToCustomerDebitCreditNotification" type="tns:BankToCustomerDebitCreditNotificationType"/> -->
+<!-- 	<xsd:complexType name="BankToCustomerDebitCreditNotificationType"> -->
+<!-- 		<xsd:sequence> -->
+<!-- 			<xsd:element ref="tns:DocumentHeader"/> -->
+<!-- 			<xsd:element name="PaymentNotification" type="camt054:Document"/> -->
+<!-- 			<xsd:element ref="ds:Signature"/> -->
+<!-- 		</xsd:sequence> -->
+<!-- 	</xsd:complexType> -->
+<!-- 	<xsd:element name="CustomerPaymentStatusReport" type="tns:CustomerPaymentStatusReportType"/> -->
+<!-- 	<xsd:complexType name="CustomerPaymentStatusReportType"> -->
+<!-- 		<xsd:sequence> -->
+<!-- 			<xsd:element ref="tns:DocumentHeader"/> -->
+<!-- 			<xsd:element name="ReportInformation" type="pain002:Document"/> -->
+<!-- 			<xsd:element ref="ds:Signature"/> -->
+<!-- 		</xsd:sequence> -->
+<!-- 	</xsd:complexType> -->
+<!-- 	<xsd:element name="CustomerGuaranteeDepositStatusReport" type="tns:CustomerGuaranteeDepositStatusReportType"/> -->
+<!-- 	<xsd:complexType name="CustomerGuaranteeDepositStatusReportType"> -->
+<!-- 		<xsd:sequence> -->
+<!-- 			<xsd:element ref="tns:DocumentHeader"/> -->
+<!-- 			<xsd:element name="ReportInformation" type="g1n002:Document"/> -->
+<!-- 			<xsd:element ref="ds:Signature"/> -->
+<!-- 		</xsd:sequence> -->
+<!-- 	</xsd:complexType> -->
+	<xsd:element name="BankToCustomerGuaranteeDepositNotification" type="tns:BankToCustomerGuaranteeDepositNotificationType"/>
+	<xsd:complexType name="BankToCustomerGuaranteeDepositNotificationType">
+		<xsd:sequence>
+			<xsd:element ref="tns:DocumentHeader"/>
+			<xsd:element name="PaymentNotification" type="g1n054:Document"/>
+			<xsd:element ref="ds:Signature"/>
+		</xsd:sequence>
+	</xsd:complexType>
+<!-- 	<xsd:element name="CustomerGuaranteeDepositCancelStatusReport" type="tns:CustomerGuaranteeDepositCancelStatusReportType"/> -->
+<!-- 	<xsd:complexType name="CustomerGuaranteeDepositCancelStatusReportType"> -->
+<!-- 		<xsd:sequence> -->
+<!-- 			<xsd:element ref="tns:DocumentHeader"/> -->
+<!-- 			<xsd:element name="ReportInformation" type="g1c002:Document"/> -->
+<!-- 			<xsd:element ref="ds:Signature"/> -->
+<!-- 		</xsd:sequence> -->
+<!-- 	</xsd:complexType> -->
+	<xsd:element name="BankToCustomerGuaranteeDepositCancelNotification" type="tns:BankToCustomerGuaranteeDepositCancelNotificationType"/>
+	<xsd:complexType name="BankToCustomerGuaranteeDepositCancelNotificationType">
+		<xsd:sequence>
+			<xsd:element ref="tns:DocumentHeader"/>
+			<xsd:element name="PaymentNotification" type="g1c054:Document"/>
+			<xsd:element ref="ds:Signature"/>
+		</xsd:sequence>
+	</xsd:complexType>
+<!-- 	<xsd:element name="CustomerGuaranteeRefundStatusReport" type="tns:CustomerGuaranteeRefundStatusReportType"/> -->
+<!-- 	<xsd:complexType name="CustomerGuaranteeRefundStatusReportType"> -->
+<!-- 		<xsd:sequence> -->
+<!-- 			<xsd:element ref="tns:DocumentHeader"/> -->
+<!-- 			<xsd:element name="ReportInformation" type="g2n002:Document"/> -->
+<!-- 			<xsd:element ref="ds:Signature"/> -->
+<!-- 		</xsd:sequence> -->
+<!-- 	</xsd:complexType> -->
+	<xsd:element name="BankToCustomerGuaranteeRefundNotification" type="tns:BankToCustomerGuaranteeRefundNotificationType"/>
+	<xsd:complexType name="BankToCustomerGuaranteeRefundNotificationType">
+		<xsd:sequence>
+			<xsd:element ref="tns:DocumentHeader"/>
+			<xsd:element name="PaymentNotification" type="g2n054:Document"/>
+			<xsd:element ref="ds:Signature"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DocumentHeader" type="tns:DocumentHeaderType"/>
+</xsd:schema>

@@ -1,0 +1,9 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<$rootTag>
+	<tranxId>$tranxId</tranxId>
+	<bankRef>$bankRef</bankRef>
+	<respCode>$respCode</respCode>
+	<respMsg>$respMsg</respMsg>
+	<balance>$balance</balance>
+	<message>$msg</message>
+</$rootTag>

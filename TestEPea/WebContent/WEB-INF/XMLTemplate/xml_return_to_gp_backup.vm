@@ -1,0 +1,56 @@
+<$rootTag>
+	<TxRef>$txRef</TxRef>
+	<Dtm>$dtm</Dtm>
+  	<ProjNo>$projNo</ProjNo>
+  	<DeptCode>$deptCode</DeptCode> 
+  	<VendorTaxID>$vendorTaxId</VendorTaxID>
+  	<VendorName>$vendorName</VendorName>
+  	<CompID>$compId</CompID>
+  	<User_ID>$userId</User_ID>
+  	<SeqNo>$seqNo</SeqNo>
+  	<ConsiderDesc>$considerDesc</ConsiderDesc>
+  	<consider_money>$considerMoney</consider_money>
+  	<GuaranteeAmt>$guaranteeAmt</GuaranteeAmt>
+  	<Contract_no>$contractNo</Contract_no>
+  	<Contract_date>$contractDate</Contract_date>
+  	<guarantee_price>$guaranteePrice</guarantee_price>
+  	<guarantee_percent>$guaranteePercent</guarantee_percent>
+  	<advance_guarantee_price>$advGraranteePrice</advance_guarantee_price>
+  	<advance_payment>$advPayment</advance_payment>
+  	<works_guarantee_price>$workGuaranteePrice</works_guarantee_price>
+  	<works_guarantee_percent>$workGuaranteePercent</works_guarantee_percent>
+  	<collection_phase>$collectionPhase</collection_phase>
+  	<EndDte>$endDate</EndDte>
+  	<StartDte>$startDate</StartDte>
+  	<BondType>$bondType</BondType>
+  	<ProjName>$projectName</ProjName>
+  	<ProjAmt>$projectAmt</ProjAmt>
+  	<ProjOwnName>$projectOwnName</ProjOwnName>
+  	<CostCenter>$costCenter</CostCenter>
+  	<CostCenterName>$constCenterName</CostCenterName>
+#if ($rootTag == "wele0004Request")
+	<Document_No>$documentNo</Document_No>
+	<Document_Date>$documentDate</Document_Date>
+  	<ExpireDate>$expireDate</ExpireDate>
+  	<StatusLG>$statusLg</StatusLG>
+  	<Status_Desc>$statusDesc</Status_Desc>
+  	<AppvAmt>$appvAmt</AppvAmt>
+  	<AppvDte>$appDate</AppvDte>
+  	<LGNo>$lgNo</LGNo>
+  	<BankCode>$bankCode</BankCode>
+  	<Branch_Code>$branchCode</Branch_Code>
+  	<Branch_Name>$branchName</Branch_Name>
+  	<BankAddr>$bankAddr</BankAddr>
+  	<AuthSigName>$authSigName</AuthSigName>
+  	<Position>$position</Position>
+  	<WitnessName1>$witnessName1</WitnessName1>
+  	<WitnessName2>$witnessName2</WitnessName2>
+#else
+  	<StatusLG>$statusLg</StatusLG>
+  	<Status_Desc>$statusDesc</Status_Desc>
+  	<AppvAmt>$appvAmt</AppvAmt>
+  	<AppvDte>$appDate</AppvDte>
+  	<ExpireDate>$expireDate</ExpireDate>
+  	<LGNo>$lgNo</LGNo>
+#end
+</$rootTag>
